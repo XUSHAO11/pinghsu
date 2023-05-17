@@ -1,0 +1,209 @@
+# ===========================================
+# Site Settings 网站相关设置
+# ===========================================
+
+# 网站基础设置
+# 图片需要放置在 themes/pinghsu/source/imagse 下
+headerLogoUrl: https://img1.imgtp.com/2023/04/28/BgxNwW92.png # 头部右上角logo图片地址，留空则取网站标题 
+footerLogoUrl: https://img1.imgtp.com/2023/04/28/BgxNwW92.png
+lowerleftLogo: # /images/lowerleft_2.png # 左下角图片，留空则不设 lowerleftLogo
+favicon: https://img1.imgtp.com/2023/04/28/BgxNwW92.png # favicon(即chrome标签页图标)，留空则不设favicon
+iosicon: https://img1.imgtp.com/2023/04/28/BgxNwW92.png # apple touch icon 地址，留空则不设 apple touch icon
+since: 2019 # 站点起始时间
+
+# Menu Setting 菜单设置。由于标签和分类重复，所以默认关闭标签页。
+menu:
+  categories: /categories
+  archives: /archives
+  links: /links
+  about: /about
+  # tags: /tags
+  message: /message
+
+# Archive Setting 归档页设置
+# month: 按月份归档，year: 按年份归档，默认按月份归档
+archive: month
+
+# Social Setting 社交设置
+social:
+  Github: https://github.com/XUSHAO11
+  QQ: 1217671134
+  Email: mailto:m13333804573@163.com
+  RSS: /atom.xml
+
+# ===========================================
+# Function Setting 功能设置
+# ===========================================
+
+# 是否启用DNS预解析加速
+# 启用则会对CDN资源和Gravatar进行加速
+dnsPrefetch: true
+
+# 自定义CDN加速地址
+# 若设置，且启用DNS预解析，则会被加速，可以填写图床地址进行图片加载加速，或者加速其他cdn
+cdnAdd: 
+
+# 是否启用移动端点击延迟消除设置
+enableFastClick: true
+
+# 是否启用文章Mathjax设置
+# 启用则会对内容页进行数学公式渲染，仅支持 $公式$ 和 $$公式$$
+enableMathjax: true
+
+# 文章页底部相关文章设置
+# 仅在文章页中生效，文章是根据标签进行相关的
+# enable：是否启用
+# limit：显示文章数量，建议设置不超过6条
+relatedPosts: 
+  enable: true
+  limit: 5
+
+# 底部最近文章设置
+# enable：是否启用
+# limit：显示数量，建议设置不超过8条
+recentlyPosts:
+  enable: true
+  limit: 5
+
+# 底部最近评论设置
+# 只有开启了valine评论系统才能生效
+# enable：是否启用
+# limit：显示数量，建议设置不超过8条
+recentlyComments:
+  enable: true
+  limit: 5
+
+# ===========================================
+# Appearance Setting 外观设置
+# ===========================================
+
+# 首页文章列表设置
+# 默认三列
+# three: 三列，one：一列
+postListSwitch: one
+
+# 文章色块设置
+# 启用则可以通过文章字段color控制色块颜色，仅支持blue、purple、green、yellow、red
+colorBgPosts: true
+
+# 文章题图设置
+# 启用则在文章页顶部显示缩略图
+showPostThumb: true
+
+# 默认缩略图
+defaultThumb: 
+
+# 随机缩略图设置
+# 设为 0 则不使用主题自带的缩略图，转而使用个性化色块
+# 不为 0 时表示默认随机缩略图的数量
+randomThumb: 18
+
+# 文章目录设置
+# 文章页右边目录生成，仅在网页宽度大于1000px时显示
+enableDirectory: true
+
+# 代码高亮设置
+# enable：是否启用
+# theme：主题样式css名称，默认使用atom-one-dark主题。在https://highlightjs.org/static/demo/上可以修改
+highlight:
+  enable: true
+  theme: atom-one-dark
+
+# 底部彩色动态词语配置
+# 一个词语一行
+animateWords:
+  - Vue
+  - JavaScript
+  - Hexo
+  - Node.js
+  - React
+
+# 不蒜子网站统计
+busuanzi: true
+
+# 百度统计id，填写复 hm.js? 后面那串统计脚本 id
+baiduAnalytics:
+
+# 网站备案信息
+beian: 豫ICP备2022014432号-1
+
+# valine评论系统
+# 配置详情参考：https://valine.js.org/configuration.html
+valine:
+  enable: true
+  appId: FLEvpheUdzYALN4BFt0PLJtV-gzGzoHsz # Your leancloud application appid
+  appKey: yhYts1vsbCivgo7vO1lVHyx9 # Your leancloud application appkey
+  placeholder: "输入你的评论\n昵称为必填项目，输入QQ号可以直接获取用户名和头像，并且省去了填写邮箱的麻烦！\n虽然email不是必选，但是填写了email可以收到推送通知哦！" # Comment box placeholder
+  avatar: "" # Gravatar style
+  meta: [nick, mail] # Custom comment header
+  pageSize: 10 # Pagination size
+  lang: # Language, available values: en, zh-cn
+  visitor: true # Article reading statistic
+  comment_count: true # If false, comment count will only be displayed in post page, not in home page
+  recordIP: true # Whether to record the commenter IP
+  serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)
+  enableQQ: true # Whether to enable the Nickname box to automatically get QQ Nickname and QQ Avatar
+  requiredFields: [nick] # Set required fields: [nick] | [nick, mail]
+# 打赏配置
+# 二维码图片放置在主题目录下的/source/imagse/
+# example：/images/wechat.jpg
+reward:
+  enable: false # 是否启用
+  text: 如果我的文章对你有很大帮助，那么不妨 # 打赏文案
+  wechat: /images/wechat.jpg # 微信支付二维码地址
+  alipay: /images/alipay.jpg # 支付宝二维码地址
+
+# 文章页音乐播放器设置
+# 配置详情参考：https://github.com/metowolf/MetingJS
+music:
+  enable: false    # 是否启用
+  id: 60519192 # song id / playlist id / album id / search keyword
+  server: netese # music platform: netease, tencent, kugou, xiami, baidu
+  type: playlist # song, playlist, album, search, artist
+  autoplay: false # 是否使用自动播放
+  fixed: true  # 是否使用固定模式
+  mini: false # 是否使用迷你模式
+  order: list # list: 顺序播放 random: 随机播放
+
+# Main page 
+index_generator:
+  path: ''
+  per_page: 12
+  order_by: -date
+
+# Archive page
+archive_generator:
+  enabled: true
+  per_page: 12
+  yearly: false
+  monthly: true
+  daily: false
+  order_by: -date
+
+# Categories and detail
+category_generator:
+  per_page: 12
+
+tag_generator:
+  per_page: 12
+
+# 插件及特效设置
+# 显示看板娘
+live2d:
+  enable: false
+
+# 本地搜索
+local_search:
+  address: /search
+
+# 点击烟花爆炸效果
+click_fireworks:
+  enable: true
+
+# 网站点击红心效果
+click_love: 
+  enable: false
+
+# 超链接平滑移动
+smooth_scroll:
+  enable: true

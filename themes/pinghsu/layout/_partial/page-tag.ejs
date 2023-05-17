@@ -1,0 +1,31 @@
+<%if (typeof theme.menu.tags != 'undefined') {%>
+
+
+<%- partial('_partial/header', { 
+    title:  __('menu.tags') , 
+    bgColor: 'bg-grey'
+}) %>
+
+<div class="main-content page-page">
+    <div class="search-page">
+        <div class="search-title">
+            <h1><%= __('tags.title') %></h1>
+            <h4><%= __('tags.count', site.tags.count()) %></h4>
+        </div>
+
+        <div class="search-tags">
+        <% if (site.tags.length !== 0) { %>
+            <% site.tags.sort('-posts.length').forEach(function(tag) { %>
+            <a href="<%- url_for(tag.path) %>" class="<% if (theme.colorBgPosts) { %>text-white <% } %><%= getPostBgColor(theme.colorBgPosts, tag.color, 'white') %>"># <%= tag.name %>(<%= tag.posts.count() %>)</a>
+            <% }); %>
+        <% } else { %>
+            <p> 主人还木有添加过标签哦_(:з」∠)_</p>
+        <% } %>
+            <div class="search-tags-hr <%= getPostBgColor(theme.colorBgPosts, '', 'deepgrey') %>"></div>
+        </div>
+    </div>
+</div>
+
+<%- partial('_partial/footer') %>
+
+<% }%>

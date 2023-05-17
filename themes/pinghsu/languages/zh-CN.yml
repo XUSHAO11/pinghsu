@@ -1,0 +1,41 @@
+menu:
+  categories: 分类
+  tags: 标签
+  archives: 归档
+  links: 友人帐
+  about: 关于我
+  message: 留言板
+
+recentlyPosts: 最近文章
+
+recentlyComments: 最近评论
+
+index:
+  readMore: 继续阅读
+
+tags:
+  title: 所有标签
+  count: 目前共计%d个标签
+
+archives:
+  title: 嗯..! 目前共有 %d 篇文章，继续努力(ง •_•)ง
+  empty: 主人去拯救世界了>_<
+
+categories:
+  empty: 你还没有分类哦，赶紧去给你的文章加上分类吧~
+  title: 所有分类
+  count: 目前共有%d个分类
+
+archive:
+  empty: 没有找到内容，请换别的关键字进行检索~
+
+
+sitecount:
+  text: 总字数
+  unit: 字
+views:
+  text: 总访问量
+  unit: 次
+vistors: 
+  text: 总访客数
+  unit: 人

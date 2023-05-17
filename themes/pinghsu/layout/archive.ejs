@@ -1,0 +1,60 @@
+<!--Archive page soruce source code-->
+<!--Perpage -->
+<%- partial('_partial/header', { 
+    title: __('menu.archives'), 
+    bgColor: 'bg-grey'
+}) %>
+
+<div class="main-content common-page clearfix">
+    <p style="padding-left: 15px;color: #313131"><%= __('archives.title', site.posts.length) %></p>
+    <div class="categorys-item">
+        <% if (page.posts.length !== 0) { %>
+        <% var archivePosts = [];
+            if (theme.archive === 'year') {
+                archivePosts = yearArchivePosts(page.posts);
+            } else {
+                archivePosts = monthArchivePosts(page.posts);
+            }
+        %>
+        <% archivePosts.forEach(function(item) { %>
+        <div class="categorys-title"><%= item.title %></div>
+        <div class="post-lists">
+            <div class="post-lists-body">
+                <% item.list.forEach(function(post) { %>
+                <div class="post-list-item">
+                    <div class="post-list-item-container">
+                        <div class="item-label">
+                            <div class="item-title">
+                                <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+                            </div>
+                            <div class="item-meta clearfix">
+                                <div class="item-meta-date"><%= post.date.format(config.date_format) %></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <% }); %>
+            </div>
+        </div>
+        <% }); %>
+        <% } else { %>
+        <p><%= __('archives.empty') %></p>
+        <% } %>
+    </div>
+</div>
+<% if (theme.valine && theme.valine.appid && theme.valine.appkey){ %>
+    <section id="comments" style="margin:10px;padding:10px;background:#fff;">
+      <%- partial('post/valine', {
+        key: post.slug,
+        title: post.title,
+        url: config.url+url_for(post.path)
+        }) %>
+    </section>
+  <% } %>
+<% if (page.total > 1) { %>
+<div class="lists-navigator clearfix">
+<%- partial('_partial/pagination') %>
+</div>
+<% } %>
+
+<%- partial('_partial/footer') %>

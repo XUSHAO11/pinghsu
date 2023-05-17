@@ -1,0 +1,123 @@
+<%- partial('_partial/header', { 
+    title: config.title, 
+    bgColor: 'bg-grey'
+}) %>
+
+<a id="top" class="anchor-top"></a>
+
+<div class="main-content index-page clearfix <% if (theme.postListSwitch == 'one') { %>onlist-page<% } %>">
+	<div class="post-lists">
+		<div class="post-lists-body">
+        <% page.posts.forEach(function(post) { %>
+			<% if (theme.postListSwitch === 'three' || theme.postListSwitch !== 'one') { %>
+            <div class="post-list-item">
+				<div class="post-list-item-container">
+					<div class="item-thumb <%= getPostBgColor(theme.colorBgPosts, post.color, 'deepgrey') %>" style="background-image:url(<%= getPostThumb(post, theme) %>);"></div>
+					<a href="<%- url_for(post.path) %>">
+                        <div class="item-desc">
+                            <% if (post.excerpt) { %>
+                            <p><%- truncate(strip_html(post.excerpt), { length: 75 }) %></p>
+                            <% } else { %>
+                            <p><%- truncate(strip_html(post.content), { length: 75 }) %></p>
+                            <% } %>
+						</div>
+					</a>
+					<div class="item-slant reverse-slant <%= getPostBgColor(theme.colorBgPosts, post.color, 'deepgrey') %>"></div>
+					<div class="item-slant"></div>
+					<div class="item-label">
+						<div class="item-title"><a href="<%- url_for(post.path) %>"><%= post.title %></a></div>
+						<div class="item-meta clearfix">
+						<!--
+							<% if (theme.valine.enable && theme.valine.visitor) { %>
+							<div class="item-meta-date" style="color: #313131; padding-top: 10px; font-size: 13px;">
+								<span id="<%- url_for(post.path) %>" class="leancloud-visitors" data-flag-title="<%= post.title %>">
+									<span class="leancloud-visitors-count">0</span> Views 
+								</span>
+							</div>
+							<% } else { %>
+							<div class="item-meta-date" style="color: #313131; padding-top: 12px;">
+								<%= post.date.format(config.date_format) %>
+							</div>
+							<% } %>
+						-->
+                            <div class="item-meta-ico <%= getPostIcon(post.icon) %>" style="background: url(/images/bg-ico.png) no-repeat;background-size: 40px auto;"></div>
+                            <div class="item-meta-cat">
+                                <% post.categories.reverse().forEach(function(category) { %>
+                                <a href="<%- url_for(category.path) %>"><%= category.name %></a>
+								<% }); %>
+                            </div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% } %>
+			<% if (theme.postListSwitch == 'one') { %>
+			<div class="post-onelist-item">
+				<div class="post-onelist-item-container">
+					<a href="<%- url_for(post.path) %>">
+						<div class="onelist-item-thumb <%= getPostBgColor(theme.colorBgPosts, post.color, 'deepgrey') %>" style="background-image:url(<%= getPostThumb(post, theme) %>);"></div>
+					</a>
+					<div class="onelist-item-info">
+						<div class="item-title">
+							<a href="<%- url_for(post.path) %>"><%= post.title %></a>
+						</div>
+						<div class="item-meta">
+						<!--
+							<% if (theme.valine.enable && theme.valine.visitor) { %>
+							<span id="<%- url_for(post.path) %>" class="leancloud-visitors" data-flag-title="<%= post.title %>">
+								<span class="leancloud-visitors-count">0</span> Views 
+							</span>
+							<% } %>
+						-->
+							<time datetime="<%= post.date.unix() %>" itemprop="datePublished">Published on <%- post.date.format(config.date_format) %><% if (post.categories.length != 0) { %> in <% } %></time><% post.categories.forEach(function(category, index) { %><a href="<%- url_for(category.path) %>"><%= category.name %><% if (index !== post.categories.length - 1) { %> / <% } %></a><% }); %>
+						</div>
+						<div class="item-meta-hr <%= getPostBgColor(theme.colorBgPosts, post.color, 'deepgrey') %>"></div>
+						<div class="item-content">
+                            <% if (post.excerpt) { %>
+                            <p><%- truncate(strip_html(post.excerpt), { length: 150 }) %></p>
+                            <% } else { %>
+                            <p><%- truncate(strip_html(post.content), { length: 150 }) %></p>
+                            <% } %>
+						</div>
+						<div class="item-readmore">
+							<a href="<%- url_for(post.path) %>"> <%= __('index.readMore') %>  </a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<% } %>
+        <% }); %>
+		</div>
+	</div>
+
+    <% if (page.total > 1) { %>
+    <div class="lists-navigator clearfix">
+    <%- partial('_partial/pagination') %>
+    </div>
+    <% } %>
+</div>
+
+<div id="index-bottom-bar" class="post-bottom-bar">
+	<div class="bottom-bar-inner">
+		<div class="bottom-bar-items social-share left">
+			<span class="bottom-bar-item"><i class="fa fa-share-square-o" aria-hidden="true"></i></span>
+			<span class="bottom-bar-item bottom-bar-qq"><a href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=<%= url %>&amp;sharesource=qzone&amp;title=<%= config.title %>" target="_blank" title="<%= config.title %>" rel="nofollow">Qzone</a></span>
+			<span class="bottom-bar-item bottom-bar-weibo"><a href="http://service.weibo.com/share/share.php?url=<%= url %>&amp;title=<%= config.title %>" target="_blank" title="<%= config.title %>" rel="nofollow">Weibo</a></span>
+			<span class="bottom-bar-item bottom-bar-facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=<%= url %>" target="_blank" title="<%= config.title %>" rel="nofollow">Facebook</a></span>
+			<span class="bottom-bar-item bottom-bar-twitter"><a href="https://twitter.com/intent/tweet?url=<%= page.permalink %>&amp;text=<%= config.title %>" target="_blank" title="<%= config.title %>" rel="nofollow">Twitter</a></span>
+			<span class="bottom-bar-item bottom-bar-qrcode"><a href="https://cli.im/api/qrcode/code?text=<%= url %>" target="_blank" rel="nofollow">QRcode</a></span>
+		</div>
+		<div class="bottom-bar-items right">
+            <% if (page.prev) { %>
+            <span class="bottom-bar-item"><a href="<%- url_for(page.prev.path) %>"><i class="fa fa-arrow-left"></i></a></span>
+            <% } %>
+            <% if (page.next) { %>
+            <span class="bottom-bar-item"><a href="<%- url_for(page.next.path) %>"><i class="fa fa-arrow-right"></i></a></span>
+            <% } %>
+			<span class="bottom-bar-item"><a href="#footer"> <i class="fa fa-arrow-down"></i> </a></span>
+			<span class="bottom-bar-item"><a href="#top"><i class="fa fa-arrow-up"></i></a></span>
+		</div>
+	</div>
+</div>
+
+<%- partial('_partial/footer') %>

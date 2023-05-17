@@ -1,0 +1,36 @@
+<!--Archive page source code-->
+
+<div class="main-content common-page clearfix">
+    <div class="common-item">
+        <div class="common-title">
+            <% var commonTitle 
+                if (is_category()) {
+                    commonTitle = page.category;
+                } else if (is_tag()) {
+                    commonTitle = page.tag;
+                }
+            %>
+        <%= commonTitle %>
+        </div>
+        <div class="post-lists">
+			<div class="post-lists-body">
+                <% if (page.posts) {%>
+				<% page.posts.forEach(function(post) { %>
+				<div class="post-list-item">
+					<div class="post-list-item-container">
+						<div class="item-label">
+							<div class="item-title"><a href="<%= url_for(post.path) %>"><%= post.title %></a></div>
+							<div class="item-meta clearfix">
+								<div class="item-meta-date"> <%= post.date.format(config.date_format) %> </div>
+							</div>
+						</div>
+					</div>
+				</div>
+                <% }); %>
+                <% } else { %>
+                <div class="post-list-item"><%= __('archive.empty') %></div>
+                <% } %>
+			</div>
+		</div>
+    </div>
+</div>

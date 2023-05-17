@@ -1,0 +1,26 @@
+<%- partial('_partial/header', { 
+    title:  __('menu.categories') , 
+    bgColor: 'bg-grey'
+}) %>
+
+<div class="main-content page-page">
+    <div class="search-page">
+        <div class="search-title">
+            <h1><%= __('categories.title') %></h1>
+            <h4><%= __('categories.count', site.categories.count()) %></h4>
+        </div>
+
+        <div class="search-tags">
+        <% if (site.categories.length !== 0) { %>
+            <% site.categories.sort('-posts.length').forEach(function(category, tag) { %>
+            <a href="<%- url_for(category.path) %>" class="<% if (theme.colorBgPosts) { %>text-white <% } %><%= getPostBgColor(theme.colorBgPosts, tag.color, 'white') %>"><%= category.name %>(<%= category.posts.count() %>)</a>
+            <% }); %>
+        <% } else { %>
+            <p> 主人还木有添加过分类哦_(:з」∠)_</p>
+        <% } %>
+            <div class="search-tags-hr <%= getPostBgColor(theme.colorBgPosts, '', 'deepgrey') %>"></div>
+        </div>
+    </div>
+</div>
+
+<%- partial('_partial/footer') %>

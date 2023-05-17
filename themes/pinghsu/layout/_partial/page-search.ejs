@@ -1,0 +1,21 @@
+<%- partial('_partial/header', { 
+    title: '搜索', 
+    bgColor: 'bg-grey'
+}) %>
+
+<div class="main-content page-page">
+    <div class="search-page">
+        <div class="search-title">
+            <h1>站内搜索</h1>
+        </div>
+        <form id="search" class="search-form" method="post" role="search" >
+            <span class="local-search-plugin">
+                <input type="search" id="local-search-input" style="outline:none;" class="local-search-input-cls" name="s" placeholder="想要找些什么呢~"  autocomplete="off">
+                <%# <button type="submit" class="spsubmit"><i class="icon-search"></i></button> %>
+                <div id="local-search-result" class="local-search-result-cls" style="display:none"></div>
+            </span>
+        </form>
+    </div>
+</div>
+
+<%- partial('_partial/footer') %>

@@ -1,0 +1,34 @@
+menu:
+  categories: 分類
+  tags: ラベル
+  archives: アーカイブ
+  links: フレンドリーリンク
+  about: 私について
+
+recentlyPosts: 最近の記事
+
+recentlyComments: 最近のコメント
+
+index:
+  readMore: 続きを読む
+
+tags:
+  title: すべてのラベル
+  count: 現在合計％dタグ
+
+archives:
+  title: うーん..！現在％d個のログがあります。 頑張ってください〜
+  empty: あなたはまだ記事を書いていません、ただ記事を書きに行ってください〜
+
+categories:
+  empty: まだ分類していません。記事に分類を追加してください〜
+
+archive:
+  empty: コンテンツが見つかりません。別のキーワードで検索してください〜
+
+views:
+  text: サイトへの合計訪問回数
+  unit: 回
+vistors: 
+  text: このサイトへの訪問者
+  unit: 人

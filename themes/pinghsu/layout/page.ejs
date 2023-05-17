@@ -1,0 +1,9 @@
+<% if (is_current(theme.menu.categories)) { %>
+<%- partial('_partial/page-category') %>
+<% } else if (is_current(theme.menu.tags)) { %>
+<%- partial('_partial/page-tag') %>
+<% } else if (is_current('/search')) { %>
+<%- partial('_partial/page-search') %>
+<% } else { %>
+<%- partial('_partial/page-custom') %>
+<% } %>

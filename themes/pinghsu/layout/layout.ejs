@@ -1,0 +1,129 @@
+<%- body %>
+    <style>
+        /* 深色模式按钮设置 */
+        #sma {
+            background: #000;
+            width: 38px;
+            height: 38px;
+            display: block;
+            position: fixed;
+            border-radius: 50%;
+            right: 15px;
+            bottom: 170px;
+            padding-top: 15px;
+            margin-bottom: 0;
+            z-index: 998;
+            cursor: pointer;
+        }
+
+        #sma .fa-moon-o {
+            position: absolute;
+            right: 8px;
+            bottom: 8px;
+            font-size: 1.48rem !important;
+        }
+
+        #sma .fa-lightbulb-o {
+            position: absolute;
+            right: 13px;
+            bottom: 8px;
+            font-size: 1.5rem !important;
+        }
+
+        /*  */
+        .dark {
+            background-color: #282c34;
+        }
+
+        .fa-moon-o:before {
+            content: "\f186";
+        }
+
+        .fa-comments:before {
+            content: "\f086";
+        }
+
+
+        /* 背景颜色变黑色 */
+
+        body.dark #index-bottom-bar,
+        body.dark .bg-white,
+        body.dark .related-post-lists,
+        body.dark .comment-container
+        {
+            background-color: #12121c6c;
+        }
+        body.dark .hljs
+        {
+            background-color: #e3e3e375;
+            color: #000;
+        }
+        body.dark .onlist-page .post-lists .post-lists-body .post-onelist-item
+        {
+            background-color: #aeaeae00;
+            
+        }
+        body.dark  a,
+        body.dark p,
+        body.dark button,
+        body.dark .post-onelist-item-container .onelist-item-info .item-title,
+        body.dark .post-onelist-item-container .item-meta, .post-onelist-item-container .item-readmore ,
+        .post-content h1, .post-content h2, .post-content h3, .post-content h4, .post-content h5, .post-content h6
+        {
+            color: #FFF !important;
+
+        }
+        /* 改变透明度 */
+        body.dark .aplayer {
+            background: #2f3742 !important;
+        }
+
+        body.dark img,
+        body.dark strong {
+            filter: brightness(.7);
+        }
+        #music-163{
+            position: fixed;
+            left: 0;
+            bottom: 0;
+        }
+    </style>
+    <script>
+        if (localStorage.getItem('dark') === '1') {
+            document.body.classList.add('dark');
+        }
+        else if (new Date().getHours() >= 22 || new Date().getHours() < 7) {
+            document.body.classList.add('dark');
+        }
+        else if (matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.classList.add('dark');
+        }
+        // 深色模式设置
+        function switchNightMode() {
+            var body = document.body;
+            if (body.classList.contains('dark')) {
+                document.body.classList.remove('dark');
+                localStorage.setItem('dark', '0');
+                $('#nightMode').removeClass("fa-lightbulb-o").addClass("fa-moon-o");
+                return;
+            } else {
+                document.body.classList.add('dark');
+                localStorage.setItem('dark', '1');
+                $('#nightMode').removeClass("fa-moon-o").addClass("fa-lightbulb-o");
+                return;
+            }
+        }
+        
+    </script>
+    <a onclick="switchNightMode()" id="sma">
+        <i class="fa fa-moon-o" id="nightMode" aria-hidden="false"></i>
+    </a>
+    <!-- <div id="music-163">
+    <iframe frameborder="no" border="0" marginwidth="0"
+    marginheight="0" width=330 height=450 
+    src="http://music.163.com/outchain/player?type=0&id=7482412739&auto=0&height=430">
+</iframe>
+</div> -->
+
+
+
