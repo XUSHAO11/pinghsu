@@ -123,7 +123,7 @@ date: 2019-06-11 10:55:13
                <img class="ava" src="https://zx.js.cool/avatar.webp" />
                <div class="card-header">
                   <div>
-                     <a href="https://zx.js.cool">zx's blog</a>
+                     <a href="https://zx.js.cool/">zx's blog</a>
                   </div>
                   <div class="info">努力活着，才是对死亡最大的反抗</div>
                </div>
@@ -132,7 +132,7 @@ date: 2019-06-11 10:55:13
                <img class="ava" src="https://static.gridea.dev/286706305131872781/aN1NWJlrB.png" />
                <div class="card-header">
                   <div>
-                     <a href="https://177157.xyz">包子叔の日常</a>
+                     <a href="https://177157.xyz/">包子叔の日常</a>
                   </div>
                   <div class="info">抗续写记忆中的点点滴滴,留下互联网足迹</div>
                </div>
@@ -141,7 +141,7 @@ date: 2019-06-11 10:55:13
                <img class="ava" src="https://blog.pai233.top/img/avatar.jpg" />
                <div class="card-header">
                   <div>
-                     <a href="https://177157.xyz">咕咕云梦泽</a>
+                     <a href="https://blog.pai233.top/">咕咕云梦泽</a>
                   </div>
                   <div class="info">Write Down My Life.</div>
                </div>
@@ -171,6 +171,15 @@ date: 2019-06-11 10:55:13
                      <a href="http://lihans.top/">MJ </a>
                   </div>
                   <div class="info">欢迎您访问MJ的小站</div>
+               </div>
+            </div>
+             <div class="card">
+               <img class="ava" src="http://hk.1001c.cn/1.jpg" />
+               <div class="card-header">
+                  <div>
+                     <a href="http://hk.1001c.cn/">心动乐园 </a>
+                  </div>
+                  <div class="info">我热爱你热爱的一切</div>
                </div>
             </div>
          </div>
